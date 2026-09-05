@@ -1,0 +1,68 @@
+{
+  "name": "@splintr-dev/server",
+  "version": "0.4.4",
+  "description": "Splintr server SDK — accept crypto payments from any token, on any chain, settle in one asset.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./openapi": {
+      "types": "./dist/openapi-client.d.ts",
+      "import": "./dist/openapi-client.mjs",
+      "require": "./dist/openapi-client.js"
+    },
+    "./openapi-types": {
+      "types": "./dist/openapi.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "crypto",
+    "payments",
+    "stablecoin",
+    "solana",
+    "ethereum",
+    "usdc",
+    "splintr"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Splintr-dev/SPLINTR.git",
+    "directory": "sdk/splintr-server"
+  },
+  "homepage": "https://github.com/Splintr-dev/SPLINTR#readme",
+  "bugs": {
+    "url": "https://github.com/Splintr-dev/SPLINTR/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/openapi-client.ts --format esm,cjs --dts --clean && cp src/openapi.d.ts dist/openapi.d.ts",
+    "codegen": "openapi-typescript ../../public/openapi.yaml -o src/openapi.d.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.13.8"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.13.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "@splintr-dev/react",
+  "version": "0.4.4",
+  "description": "React components for Splintr hosted checkout — accept any token, on any chain.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "crypto",
+    "payments",
+    "react",
+    "checkout",
+    "splintr"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Splintr-dev/SPLINTR.git",
+    "directory": "sdk/splintr-react"
+  },
+  "homepage": "https://github.com/Splintr-dev/SPLINTR#readme",
+  "bugs": {
+    "url": "https://github.com/Splintr-dev/SPLINTR/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm,cjs --dts --clean",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "@types/react": "^18.2.0"
+  }
+}
